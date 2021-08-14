@@ -28,18 +28,18 @@ public class DayNightScript : MonoBehaviour
             time = 0;
         }
 
-        if ((int) time == 60 && canChangeDay)
+        if ((int) time == 120 && canChangeDay)
         {
             canChangeDay = false;
             //dayChanged();
             days++;
         }
 
-        if ((int)time == 65)
+        if ((int)time == 1)
             canChangeDay = true;
 
         time += Time.deltaTime;
-        light.GetComponent<Light2D>().color = lightcolor.Evaluate(time * 0.01f);
+        light.GetComponent<Light2D>().color = lightcolor.Evaluate(time * 0.008f);
 
     }
 
