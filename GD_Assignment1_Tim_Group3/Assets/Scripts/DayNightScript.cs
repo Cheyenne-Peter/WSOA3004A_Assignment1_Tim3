@@ -25,7 +25,8 @@ public class DayNightScript : MonoBehaviour
     public bool isNight;
 
     public Text nightOrDay;
-    
+    public Text dayCounter;
+
     public void Start()
     {
         isNight = false;
@@ -41,8 +42,9 @@ public class DayNightScript : MonoBehaviour
         if ((int) time == 120 && canChangeDay)
         {
             canChangeDay = false;
-            //dayChanged();
             days++;
+            //dayChanged();
+
         }
 
         if ((int)time == 1)
@@ -57,6 +59,7 @@ public class DayNightScript : MonoBehaviour
         }
         if ((int)time == 120)
         {
+            days++;
             isNight = false;
         }
 
@@ -68,6 +71,8 @@ public class DayNightScript : MonoBehaviour
         {
             nightOrDay.text = "Day";
         }
+
+        dayCounter.text = "Day" + days;
 
     }
 
