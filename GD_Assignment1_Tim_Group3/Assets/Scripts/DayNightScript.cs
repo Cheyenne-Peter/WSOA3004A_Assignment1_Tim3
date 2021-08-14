@@ -51,7 +51,7 @@ public class DayNightScript : MonoBehaviour
             canChangeDay = true;
 
         time += Time.deltaTime;
-        light.GetComponent<Light2D>().color = lightcolor.Evaluate(time * 0.00825f);
+        light.GetComponent<Light2D>().color = lightcolor.Evaluate(time * 0.008285f);
 
         if ((int)time == 60)
         {
