@@ -72,7 +72,7 @@ public class DayNightScript : MonoBehaviour
             nightOrDay.text = "Day";
         }
 
-        dayCounter.text = "Day" + days;
+        dayCounter.text = "Day " + days;
 
     }
 
