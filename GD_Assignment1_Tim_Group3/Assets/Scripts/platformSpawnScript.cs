@@ -23,8 +23,6 @@ public class platformSpawnScript : MonoBehaviour
             {
                 StartTimeSpawn -= decreaseTime;
             }
-            
-
         }
         else 
         {

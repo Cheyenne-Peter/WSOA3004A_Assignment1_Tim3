@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerControllerScript : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class playerControllerScript : MonoBehaviour
 
     private Collider2D playerCollider; // Accesses the collider attached to the player object.
 
+    public int score;
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>(); 
@@ -44,5 +46,14 @@ public class playerControllerScript : MonoBehaviour
         Vector2 movement = new Vector2(movementX * movementSpeed, rBody.velocity.y);
 
         rBody.velocity = movement;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "collectable")
+        {
+            score++;
+            Debug.Log("New Thing!");
+        }
     }
 }
