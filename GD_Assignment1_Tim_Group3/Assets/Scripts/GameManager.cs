@@ -35,6 +35,13 @@ public class GameManager : MonoBehaviour
 
     public GameObject spawnedObsticle;
 
+    public GameObject[] spawnollectionPatterns;
+
+    private float timeBTweenSpawn2;
+    public float StartTimeSpawn2;
+    public float decreaseTime2;
+    public float minimumTime2 = 0.65f;
+
     public void Start()
     {
         isNight = false;
@@ -98,5 +105,26 @@ public class GameManager : MonoBehaviour
             timeBTweenSpawn -= Time.deltaTime;
 
         }
+
+
+        if (isNight)
+        {
+            if (timeBTweenSpawn2 <= 0)
+            {
+                int rando = Random.Range(0, spawnollectionPatterns.Length);
+                Instantiate(spawnollectionPatterns[rando], transform.position, Quaternion.identity);
+                timeBTweenSpawn2 = StartTimeSpawn2;
+                if (StartTimeSpawn2 > minimumTime2)
+                {
+                    StartTimeSpawn2 -= decreaseTime2;
+                }
+            }
+            else
+            {
+                timeBTweenSpawn2 -= Time.deltaTime;
+
+            }
+        }
+     
     }
 }
