@@ -156,7 +156,7 @@ MonoBehaviour:
   - {fileID: 5932155840821753541, guid: ae749127bc627444cb4c9c80b5f326d6, type: 3}
   - {fileID: 2212142529323024587, guid: a9add4f8264cc3440a5ccc964c5abe2e, type: 3}
   - {fileID: 8868893090015595364, guid: 44d92494703543249a9ea63942d774fc, type: 3}
-  StartTimeSpawn: 2
+  StartTimeSpawn: 1.8
   decreaseTime: 0.05
   minimumTime: 1
 --- !u!4 &243250327
