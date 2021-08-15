@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollectableSystem : MonoBehaviour
 {
+ 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
