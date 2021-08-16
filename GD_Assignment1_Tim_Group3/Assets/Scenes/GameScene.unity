@@ -569,6 +569,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  gMan: {fileID: 1555543420}
   score: 0
 --- !u!61 &600492703
 BoxCollider2D:
