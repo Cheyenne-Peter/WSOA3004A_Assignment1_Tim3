@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
         nightOrDay.text = "Day";
         Instantiate(spawnedObsticle, transform.position, Quaternion.identity);
         nightSlider.maxValue = reduction;
+        nightSlider.value = reduction;
 
     }
     private void Update()
