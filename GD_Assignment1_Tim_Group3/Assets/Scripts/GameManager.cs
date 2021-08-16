@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using UnityEngine.Experimental.Rendering.Universal;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,12 +13,17 @@ public class GameManager : MonoBehaviour
 
     private int days;
 
+    public Slider nightSlider;
+
     public int Days => days;
 
     private float time = 1;
+    public float reduction;
+    private float reduced;
 
     public bool isNight;
     private bool canChangeDay = true;
+    private bool canReduce;
 
     public delegate void onDayChanged();
 
@@ -35,20 +41,32 @@ public class GameManager : MonoBehaviour
 
     public GameObject spawnedObsticle;
 
+    public GameObject[] spawnollectionPatterns;
+
+    private float timeBTweenSpawn2;
+    public float StartTimeSpawn2;
+    public float decreaseTime2;
+    public float minimumTime2 = 0.65f;
+
     public void Start()
     {
+        canReduce = true;
+        reduced = 1;
         isNight = false;
         nightOrDay.text = "Day";
         Instantiate(spawnedObsticle, transform.position, Quaternion.identity);
+        nightSlider.maxValue = reduction;
+        nightSlider.value = reduction;
+
     }
     private void Update()
     {
-        if (time > 120)
+        if (time > 60)
         {
             time = 0;
         }
 
-        if ((int)time == 120 && canChangeDay)
+        if ((int)time == 60 && canChangeDay)
         {
             canChangeDay = false;
             days++;
@@ -60,13 +78,13 @@ public class GameManager : MonoBehaviour
             canChangeDay = true;
 
         time += Time.deltaTime;
-        light.GetComponent<Light2D>().color = lightcolor.Evaluate(time * 0.008285f);
+        light.GetComponent<Light2D>().color = lightcolor.Evaluate(time * 0.01657f);
 
-        if ((int)time == 60)
+        if ((int)time == 30)
         {
             isNight = true;
         }
-        if ((int)time == 120)
+        if ((int)time == 60)
         {
             days++;
             isNight = false;
@@ -85,7 +103,7 @@ public class GameManager : MonoBehaviour
 
         if (timeBTweenSpawn <= 0)
         {
-            int rando = Random.Range(0, spawnPlatformPatterns.Length);
+            int rando = UnityEngine.Random.Range(0, spawnPlatformPatterns.Length);
             Instantiate(spawnPlatformPatterns[rando], transform.position, Quaternion.identity);
             timeBTweenSpawn = StartTimeSpawn;
             if (StartTimeSpawn > minimumTime)
@@ -98,5 +116,44 @@ public class GameManager : MonoBehaviour
             timeBTweenSpawn -= Time.deltaTime;
 
         }
+
+
+        if (isNight)
+        {
+            if (timeBTweenSpawn2 <= 0)
+            {
+                int rando = UnityEngine.Random.Range(0, spawnollectionPatterns.Length);
+                Instantiate(spawnollectionPatterns[rando], transform.position, Quaternion.identity);
+                timeBTweenSpawn2 = StartTimeSpawn2;
+                if (StartTimeSpawn2 > minimumTime2)
+                {
+                    StartTimeSpawn2 -= decreaseTime2;
+                }
+            }
+            else
+            {
+                timeBTweenSpawn2 -= Time.deltaTime;
+
+            }
+        }
+
+
+        if (isNight)
+        {
+            nightSlider.value = reduction;
+ 
+        }         
+        if( isNight && canReduce)
+        {
+            StartCoroutine(reduceReduction());
+            canReduce = false;
+        }
+    }
+
+    private IEnumerator reduceReduction()
+    {
+        yield return new WaitForSeconds(5);
+        reduction = reduction - reduced;
+        canReduce = true;
     }
 }

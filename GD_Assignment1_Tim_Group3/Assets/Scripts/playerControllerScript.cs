@@ -18,6 +18,8 @@ public class playerControllerScript : MonoBehaviour
 
     private Collider2D playerCollider; // Accesses the collider attached to the player object.
 
+    public GameManager gMan;
+
     public int score;
     void Start()
     {
@@ -54,6 +56,7 @@ public class playerControllerScript : MonoBehaviour
         {
             score++;
             Debug.Log("New Thing!");
+            gMan.reduction++;
         }
     }
 }
