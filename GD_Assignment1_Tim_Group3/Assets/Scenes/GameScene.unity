@@ -1480,7 +1480,7 @@ MonoBehaviour:
   - {fileID: 1379568561722135797, guid: bf94d1ef05a9c664b9e8ec2a4d713e1a, type: 3}
   - {fileID: 3008628502112189543, guid: ef374b5e2cfdd5648836cc4d2939b568, type: 3}
   StartTimeSpawn3: 0
-  decreaseTime3: 0
+  decreaseTime3: 0.05
   minimumTime3: 0.65
 --- !u!4 &1555543421
 Transform:
