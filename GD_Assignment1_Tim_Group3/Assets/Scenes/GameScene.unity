@@ -1463,11 +1463,11 @@ MonoBehaviour:
   - {fileID: 88014844}
   - {fileID: 1826695407}
   - {fileID: 1988051239}
+  spawnedObsticle: {fileID: 4674778755710495979, guid: 17f62be9e23d28244a714272abea5a40,
+    type: 3}
   StartTimeSpawn: 1.8
   decreaseTime: 0.05
   minimumTime: 1
-  spawnedObsticle: {fileID: 4674778755710495979, guid: 17f62be9e23d28244a714272abea5a40,
-    type: 3}
   spawnollectionPatterns:
   - {fileID: 1765985708}
   - {fileID: 2092713734}
@@ -1475,6 +1475,13 @@ MonoBehaviour:
   StartTimeSpawn2: 7
   decreaseTime2: 0.05
   minimumTime2: 0.65
+  spawnEffector:
+  - {fileID: 7708449566149572453, guid: 3b8e38894cf3fb54cabf9b0fa9fd1e9e, type: 3}
+  - {fileID: 1379568561722135797, guid: bf94d1ef05a9c664b9e8ec2a4d713e1a, type: 3}
+  - {fileID: 3008628502112189543, guid: ef374b5e2cfdd5648836cc4d2939b568, type: 3}
+  StartTimeSpawn3: 0
+  decreaseTime3: 0.05
+  minimumTime3: 0.65
 --- !u!4 &1555543421
 Transform:
   m_ObjectHideFlags: 0

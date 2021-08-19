@@ -32,15 +32,21 @@ public class GameManager : MonoBehaviour
     public Text nightOrDay;
     public Text dayCounter;
 
+    /// <summary>
+    /// Spawning all the different platforms
+    /// </summary>
     public GameObject[] spawnPlatformPatterns;
+    public GameObject spawnedObsticle;
 
     private float timeBTweenSpawn;
     public float StartTimeSpawn;
     public float decreaseTime;
     public float minimumTime = 0.65f;
 
-    public GameObject spawnedObsticle;
-
+    
+    /// <summary>
+    /// Spawn the energy things
+    /// </summary>
     public GameObject[] spawnollectionPatterns;
 
     private float timeBTweenSpawn2;
@@ -48,6 +54,16 @@ public class GameManager : MonoBehaviour
     public float decreaseTime2;
     public float minimumTime2 = 0.65f;
 
+    /// <summary>
+    /// Spawn the downward effector
+    /// </summary>
+
+    public GameObject[] spawnEffector;
+
+    private float timeBTweenSpawn3;
+    public float StartTimeSpawn3;
+    public float decreaseTime3;
+    public float minimumTime3 = 0.65f;
     public void Start()
     {
         canReduce = true;
@@ -101,6 +117,8 @@ public class GameManager : MonoBehaviour
 
         dayCounter.text = "Day " + days;
 
+        // Spawning the platforms
+
         if (timeBTweenSpawn <= 0)
         {
             int rando = UnityEngine.Random.Range(0, spawnPlatformPatterns.Length);
@@ -117,7 +135,26 @@ public class GameManager : MonoBehaviour
 
         }
 
+        // Spawning the effector
+         
+        /*
+        if (timeBTweenSpawn3 <= 0)
+        {
+            int rando = UnityEngine.Random.Range(0, spawnEffector.Length);
+            Instantiate(spawnEffector[rando], transform.position, Quaternion.identity);
+            timeBTweenSpawn3 = StartTimeSpawn3;
+            if (StartTimeSpawn3 > minimumTime3)
+            {
+                StartTimeSpawn3 -= decreaseTime3;
+            }
+        }
+        else
+        {
+            timeBTweenSpawn3 -= Time.deltaTime;
 
+        } */
+
+        // Spawning the energy during the night
         if (isNight)
         {
             if (timeBTweenSpawn2 <= 0)
