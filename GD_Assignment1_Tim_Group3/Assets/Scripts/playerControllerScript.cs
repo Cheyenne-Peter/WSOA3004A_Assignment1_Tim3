@@ -1,10 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
-=======
 using UnityEngine.UI;
->>>>>>> main
 
 public class playerControllerScript : MonoBehaviour
 {
@@ -21,12 +18,9 @@ public class playerControllerScript : MonoBehaviour
 
     private Collider2D playerCollider; // Accesses the collider attached to the player object.
 
-<<<<<<< HEAD
-=======
     public GameManager gMan;
 
     public int score;
->>>>>>> main
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>(); 
@@ -55,8 +49,6 @@ public class playerControllerScript : MonoBehaviour
 
         rBody.velocity = movement;
     }
-<<<<<<< HEAD
-=======
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -67,5 +59,4 @@ public class playerControllerScript : MonoBehaviour
             gMan.reduction++;
         }
     }
->>>>>>> main
 }
