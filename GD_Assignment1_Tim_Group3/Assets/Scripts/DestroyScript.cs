@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DestroyScript : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class DestroyScript : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
+            SceneManager.LoadScene(0);
 
         }
 
