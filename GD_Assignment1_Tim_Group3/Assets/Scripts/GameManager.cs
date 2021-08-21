@@ -208,14 +208,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Paused()
+    public void Paused()
     {
         pauseMenuPanel.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
     }
 
-    void Resume()
+    public void Resume()
     {
         pauseMenuPanel.SetActive(false);
         Time.timeScale = 1f;
