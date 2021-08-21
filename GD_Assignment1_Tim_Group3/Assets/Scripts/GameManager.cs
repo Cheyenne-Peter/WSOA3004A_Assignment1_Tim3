@@ -64,6 +64,15 @@ public class GameManager : MonoBehaviour
     public float StartTimeSpawn3;
     public float decreaseTime3;
     public float minimumTime3 = 0.65f;
+
+
+    /// <summary>
+    /// UI Things
+    /// </summary>
+
+    public static bool isPaused = false;
+    public GameObject pauseMenuPanel;
+
     public void Start()
     {
         canReduce = true;
@@ -185,6 +194,32 @@ public class GameManager : MonoBehaviour
             StartCoroutine(reduceReduction());
             canReduce = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Paused();
+            }
+        }
+    }
+
+    void Paused()
+    {
+        pauseMenuPanel.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+    void Resume()
+    {
+        pauseMenuPanel.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 
     private IEnumerator reduceReduction()
