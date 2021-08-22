@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930ef4b73a32d36409fdbe0189097f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnedObsticle: {fileID: 4674778755710495979, guid: 17f62be9e23d28244a714272abea5a40,
+  spawnedObsticle: {fileID: 5296545048641932803, guid: 089b0704cb03ca44abe35ffdc1e16a2a,
     type: 3}
 --- !u!1 &2212142529323024587
 GameObject:
