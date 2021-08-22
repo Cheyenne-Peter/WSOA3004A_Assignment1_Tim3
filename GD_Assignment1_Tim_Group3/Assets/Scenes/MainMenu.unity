@@ -1211,7 +1211,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4a1fe4ebb5f9cbc46a1e93dd322c285d, type: 3}
-    m_FontSize: 90
+    m_FontSize: 96
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 5
@@ -1222,7 +1222,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Font: ''Game Over'' by Pedro M. Pastor, CC License'
+  m_Text: 'All assets were made by Ewan, Luyolo and Cheyenne
+
+
+    Font: ''Game Over''
+    by Pedro M. Pastor, CC License'
 --- !u!222 &1195318573
 CanvasRenderer:
   m_ObjectHideFlags: 0
