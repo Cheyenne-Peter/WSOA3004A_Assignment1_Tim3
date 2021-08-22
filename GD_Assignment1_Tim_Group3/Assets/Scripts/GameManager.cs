@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     public onDayChanged dayChanged;
 
-    public Text nightOrDay;
+    //public Text nightOrDay;
     public Text dayCounter;
 
     /// <summary>
@@ -73,12 +73,15 @@ public class GameManager : MonoBehaviour
     public static bool isPaused = false;
     public GameObject pauseMenuPanel;
 
+    public GameObject dayImage;
+    public GameObject nightImage;
+
     public void Start()
     {
         canReduce = true;
         reduced = 1;
         isNight = false;
-        nightOrDay.text = "Day";
+       // nightOrDay.text = "Day";
         Instantiate(spawnedObsticle, transform.position, Quaternion.identity);
         nightSlider.maxValue = reduction;
         nightSlider.value = reduction;
@@ -117,11 +120,15 @@ public class GameManager : MonoBehaviour
 
         if (isNight == true)
         {
-            nightOrDay.text = "Night";
+            //nightOrDay.text = "Night";
+            nightImage.SetActive(true);
+            dayImage.SetActive(false);
         }
         else
         {
-            nightOrDay.text = "Day";
+            //nightOrDay.text = "Day";
+            dayImage.SetActive(true);
+            nightImage.SetActive(false);
         }
 
         dayCounter.text = "Day " + days;
