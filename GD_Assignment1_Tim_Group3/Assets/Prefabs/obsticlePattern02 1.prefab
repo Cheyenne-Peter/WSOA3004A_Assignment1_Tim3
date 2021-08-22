@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: obsticlePattern02 1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -56,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317333932202722911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5, y: -2, z: 0}
+  m_LocalPosition: {x: 3.5, y: 3.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1317333931537997437}
@@ -74,5 +74,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930ef4b73a32d36409fdbe0189097f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnedObsticle: {fileID: 4674778755710495979, guid: 17f62be9e23d28244a714272abea5a40,
+  spawnedObsticle: {fileID: 6326372943944612474, guid: 45ee183c947481d4f8c9f603c95c5ae5,
     type: 3}

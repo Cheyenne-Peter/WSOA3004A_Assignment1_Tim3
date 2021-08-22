@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b5507df70efb7240ab5ec0cab13d975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnedCollectable: {fileID: 7774155531825446185, guid: cf5ed148753499a49b98a9af07dd80a5,
+  spawnedCollectable: {fileID: 4419893839160851201, guid: 28fd64bc627db9946854d87bd2cc24a9,
     type: 3}
 --- !u!1 &7708449566149572453
 GameObject:
