@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
 
         // Spawning the effector
 
-        /*
+        
         if (timeBTweenSpawn3 <= 0)
         {
             int rando = UnityEngine.Random.Range(0, spawnEffector.Length);
@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
         {
             timeBTweenSpawn3 -= Time.deltaTime;
 
-        } */
+        } 
 
         // Spawning the energy during the night
 

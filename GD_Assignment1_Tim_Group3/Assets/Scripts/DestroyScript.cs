@@ -24,6 +24,11 @@ public class DestroyScript : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+        if (collision.gameObject.tag == "pushforce")
+        {
+            Destroy(collision.gameObject);
+        }
+
     }
 
 }
