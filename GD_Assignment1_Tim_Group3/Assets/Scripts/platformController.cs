@@ -5,7 +5,10 @@ using UnityEngine;
 public class platformController : MonoBehaviour
 {
     private Rigidbody2D rBody;
-    public float speed;
+
+    public float speed; // Dictates the speed the platforms will travel at.
+   
+
 
     private void Awake()
     {
@@ -15,6 +18,7 @@ public class platformController : MonoBehaviour
 
     private void FixedUpdate()
     {
+       
         rBody.velocity = new Vector2(0f, speed);
       
     }
