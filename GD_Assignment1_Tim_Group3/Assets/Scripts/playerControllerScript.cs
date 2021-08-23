@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 public class playerControllerScript : MonoBehaviour
 {
+    
     public float movementSpeed; // movement speed of player character.
     public float jumpForce;    // applied force when player character jumps.
 
     public Rigidbody2D rBody;
+
+    bool facingRight = true; // Sprite is facing rght 
 
     float movementX; // movement on x-axsis.
 
@@ -41,6 +44,8 @@ public class playerControllerScript : MonoBehaviour
                 rBody.velocity = new Vector2(rBody.velocity.x, jumpForce);
             }
         }
+
+        
     }
 
     private void FixedUpdate()
@@ -48,6 +53,23 @@ public class playerControllerScript : MonoBehaviour
         Vector2 movement = new Vector2(movementX * movementSpeed, rBody.velocity.y);
 
         rBody.velocity = movement;
+
+        if (movementX < 0 && facingRight)
+        {
+            flipSprite();// eddit
+        }
+
+        else if (movementX > 0 && !facingRight) 
+        {
+            flipSprite();
+        }
+    }
+
+    void flipSprite() 
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f,0f);
+    
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
