@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - platform
   - collectable
+  - pushforce
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
+  - 
   - 
   - 
   - 
@@ -39,9 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Lightable
+    uniqueID: 3970258889
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Test
-    uniqueID: 509814991
     locked: 0

@@ -6,12 +6,6 @@ using UnityEngine.SceneManagement;
 public class DestroyScript : MonoBehaviour
 {
 
-    void Update()
-    {
-       
-        
-    }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "platform") 
@@ -23,6 +17,16 @@ public class DestroyScript : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+        }
+
+        if (collision.gameObject.tag == "collectable")
+        {
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag == "pushforce")
+        {
+            Destroy(collision.gameObject);
         }
 
     }
