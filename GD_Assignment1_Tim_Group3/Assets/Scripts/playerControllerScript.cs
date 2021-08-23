@@ -23,6 +23,13 @@ public class playerControllerScript : MonoBehaviour
 
     public GameManager gMan;
 
+    public bool canJump;
+
+    public float jumpAmount;
+
+    public Transform GroundCheck1;
+
+
     public int score;
     void Start()
     {
@@ -33,15 +40,29 @@ public class playerControllerScript : MonoBehaviour
 
     void Update()
     {
-        isGrounded = Physics2D.IsTouchingLayers(playerCollider, groundLayer); //isGrounded Bool checks if the player box collider is touching a collider with a  ground layer.
+        isGrounded = Physics2D.OverlapCircle(GroundCheck1.position, 0.15f, groundLayer); //isGrounded Bool checks if the player box collider is touching a collider with a  ground layer.
 
+        if (isGrounded)
+        {
+            jumpAmount = 2;
+        }        
+
+        if (jumpAmount >= 1)
+        {
+            canJump = true;
+        }
+        else
+        {
+            canJump = false;
+        }
         movementX = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.Space)) // facilitates jump when spcaebar is pressed
         {
-            if (isGrounded) 
+            if (canJump) 
             {
                 rBody.velocity = new Vector2(rBody.velocity.x, jumpForce);
+                jumpAmount--;
             }
         }
 

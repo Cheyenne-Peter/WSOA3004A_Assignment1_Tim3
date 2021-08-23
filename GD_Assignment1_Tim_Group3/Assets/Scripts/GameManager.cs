@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 using UnityEngine.Experimental.Rendering.Universal;
 using System;
 
@@ -36,18 +36,18 @@ public class GameManager : MonoBehaviour
     /// Spawning all the different platforms
     /// </summary>
     public GameObject[] spawnPlatformPatterns;
-   // public GameObject spawnedObsticle;
+    public GameObject[] spawnPlatformPatterns2;
+    // public GameObject spawnedObsticle;
 
     private float timeBTweenSpawn;
     public float StartTimeSpawn;
     public float decreaseTime;
     public float minimumTime = 0.65f;
 
-    
+
     /// <summary>
     /// Spawn the energy things
     /// </summary>
-    public GameObject[] spawnollectionPatterns;
 
     private float timeBTweenSpawn2;
     public float StartTimeSpawn2;
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         canReduce = true;
         reduced = 1;
         isNight = false;
-       // nightOrDay.text = "Day";
+        // nightOrDay.text = "Day";
         //Instantiate(spawnedObsticle, transform.position, Quaternion.identity);
         nightSlider.maxValue = reduction;
         nightSlider.value = reduction;
@@ -134,25 +134,46 @@ public class GameManager : MonoBehaviour
         dayCounter.text = "Day " + days;
 
         // Spawning the platforms
-
-        if (timeBTweenSpawn <= 0)
+        if (!isNight)
         {
-            int rando = UnityEngine.Random.Range(0, spawnPlatformPatterns.Length);
-            Instantiate(spawnPlatformPatterns[rando], transform.position, Quaternion.identity);
-            timeBTweenSpawn = StartTimeSpawn;
-            if (StartTimeSpawn > minimumTime)
+            if (timeBTweenSpawn <= 0)
             {
-                StartTimeSpawn -= decreaseTime;
+                int rando = UnityEngine.Random.Range(0, spawnPlatformPatterns.Length);
+                Instantiate(spawnPlatformPatterns[rando], transform.position, Quaternion.identity);
+                timeBTweenSpawn = StartTimeSpawn;
+                if (StartTimeSpawn > minimumTime)
+                {
+                    StartTimeSpawn -= decreaseTime;
+                }
+            }
+            else
+            {
+                timeBTweenSpawn -= Time.deltaTime;
             }
         }
-        else
-        {
-            timeBTweenSpawn -= Time.deltaTime;
 
+        if (isNight)
+        {
+            if (timeBTweenSpawn <= 0)
+            {
+                int rando = UnityEngine.Random.Range(0, spawnPlatformPatterns2.Length);
+                Instantiate(spawnPlatformPatterns2[rando], transform.position, Quaternion.identity);
+                timeBTweenSpawn = StartTimeSpawn;
+                if (StartTimeSpawn > minimumTime)
+                {
+                    StartTimeSpawn -= decreaseTime;
+                }
+            }
+            else
+            {
+                timeBTweenSpawn -= Time.deltaTime;
+            }
         }
 
+
+
         // Spawning the effector
-         
+
         /*
         if (timeBTweenSpawn3 <= 0)
         {
@@ -171,32 +192,13 @@ public class GameManager : MonoBehaviour
         } */
 
         // Spawning the energy during the night
-        if (isNight)
-        {
-            if (timeBTweenSpawn2 <= 0)
-            {
-                int rando = UnityEngine.Random.Range(0, spawnollectionPatterns.Length);
-                Instantiate(spawnollectionPatterns[rando], transform.position, Quaternion.identity);
-                timeBTweenSpawn2 = StartTimeSpawn2;
-                if (StartTimeSpawn2 > minimumTime2)
-                {
-                    StartTimeSpawn2 -= decreaseTime2;
-                }
-            }
-            else
-            {
-                timeBTweenSpawn2 -= Time.deltaTime;
-
-            }
-        }
-
 
         if (isNight)
         {
             nightSlider.value = reduction;
- 
-        }         
-        if( isNight && canReduce)
+
+        }
+        if (isNight && canReduce)
         {
             StartCoroutine(reduceReduction());
             canReduce = false;
@@ -213,7 +215,12 @@ public class GameManager : MonoBehaviour
                 Paused();
             }
         }
-    }
+
+        if (reduction == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    } 
 
     public void Paused()
     {
