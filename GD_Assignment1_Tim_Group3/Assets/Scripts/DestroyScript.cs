@@ -17,6 +17,7 @@ public class DestroyScript : MonoBehaviour
         if (collision.gameObject.tag == "platform") 
         {
             Destroy(collision.gameObject);
+            collision.transform.parent = null;
         }
 
         if (collision.gameObject.tag == "Player")

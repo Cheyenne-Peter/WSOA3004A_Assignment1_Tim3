@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     /// Spawning all the different platforms
     /// </summary>
     public GameObject[] spawnPlatformPatterns;
-    public GameObject spawnedObsticle;
+   // public GameObject spawnedObsticle;
 
     private float timeBTweenSpawn;
     public float StartTimeSpawn;
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         reduced = 1;
         isNight = false;
        // nightOrDay.text = "Day";
-        Instantiate(spawnedObsticle, transform.position, Quaternion.identity);
+        //Instantiate(spawnedObsticle, transform.position, Quaternion.identity);
         nightSlider.maxValue = reduction;
         nightSlider.value = reduction;
 
