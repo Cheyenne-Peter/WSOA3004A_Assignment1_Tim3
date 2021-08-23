@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Gradient lightcolor;
     [SerializeField] private new GameObject light;
 
+
     private int days;
 
     public Slider nightSlider;
@@ -111,11 +112,30 @@ public class GameManager : MonoBehaviour
         if ((int)time == 30)
         {
             isNight = true;
+            light.GetComponent<Light2D>().intensity = 2.5f;
+            
         }
+
+        if ((int)time == 25)
+        {
+            light.GetComponent<Light2D>().intensity = 1.5f;
+        }
+
         if ((int)time == 60)
         {
             days++;
             isNight = false;
+            light.GetComponent<Light2D>().intensity = 0.75f;
+        }
+
+        if ((int)time == 45)
+        {
+            light.GetComponent<Light2D>().intensity = 1.5f;
+        }
+
+        if ((int)time == 55)
+        {
+            light.GetComponent<Light2D>().intensity = 1.5f;
         }
 
         if (isNight == true)
